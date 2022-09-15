@@ -1,0 +1,19 @@
+ 
+1824 aCRD/EGAD00001002670_mean_permutations_full.txt.gz
+4852 aCRD/EGAD00001002670_mean_permutations.significant.txt
+7666 aCRD/EGAD00001002670_mean_permutations.thresholds.txt
+1782 sCRD/EGAD00001002670_loom_permutations_full.txt.gz
+349 sCRD/EGAD00001002670_loom_permutations.significant.txt
+7666 sCRD/EGAD00001002670_loom_permutations.thresholds.txt
+2112 aCRD/EGAD00001002672_mean_permutations_full.txt.gz
+7050 aCRD/EGAD00001002672_mean_permutations.significant.txt
+9287 aCRD/EGAD00001002672_mean_permutations.thresholds.txt
+2036 sCRD/EGAD00001002672_loom_permutations_full.txt.gz
+581 sCRD/EGAD00001002672_loom_permutations.significant.txt
+9287 sCRD/EGAD00001002672_loom_permutations.thresholds.txt
+1225 aCRD/EGAD00001002673_mean_permutations_full.txt.gz
+1615 aCRD/EGAD00001002673_mean_permutations.significant.txt
+4947 aCRD/EGAD00001002673_mean_permutations.thresholds.txt
+1283 sCRD/EGAD00001002673_loom_permutations_full.txt.gz
+53 sCRD/EGAD00001002673_loom_permutations.significant.txt
+4947 sCRD/EGAD00001002673_loom_permutations.thresholds.txt

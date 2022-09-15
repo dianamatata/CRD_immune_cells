@@ -1,0 +1,13 @@
+METHOD1
+In 01 we create subfiles of the correlation peaks per cell type, and save them as Rdata files
+
+In 02, we write bash commands from Rscript
+You can call bash from R with system
+Ex: system("touch /home/users/a/avalosma/IMMUNE_CELLS/diana_scripts/A_CRDs/compared_corr/bash_commands.sh")
+Tried to append progressively the bash commands with
+
+cat(Bash_cmd,file =paste0(path_script,"/bash_commands.sh"),append=TRUE)    
+cat("\n",file =paste0(path_script,"/bash_commands.sh"),append=TRUE)
+
+In 03, merge all subsections
+

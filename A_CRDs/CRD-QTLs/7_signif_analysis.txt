@@ -1,0 +1,13 @@
+ 
+2154 conditional_merged/hist_mono_loom__ALL.txt.gz
+118466 conditional_merged/hist_mono_mean__ALL.txt.gz
+1286 conditional_merged/hist_neut_loom__ALL.txt.gz
+71511 conditional_merged/hist_neut_mean__ALL.txt.gz
+207 conditional_merged/hist_tcell_loom__ALL.txt.gz
+11148 conditional_merged/hist_tcell_mean__ALL.txt.gz
+3168 conditional_merged/methyl_mono_loom__ALL.txt.gz
+85699 conditional_merged/methyl_mono_mean__ALL.txt.gz
+3346 conditional_merged/methyl_neut_loom__ALL.txt.gz
+88413 conditional_merged/methyl_neut_mean__ALL.txt.gz
+941 conditional_merged/methyl_tcell_loom__ALL.txt.gz
+49229 conditional_merged/methyl_tcell_mean__ALL.txt.gz

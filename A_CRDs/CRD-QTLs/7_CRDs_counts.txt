@@ -1,0 +1,13 @@
+/home/users/a/avalosma/scratch/10_CRD_QTLs/conditional_merged 
+26750 593 hist_mono_loom__ALL.txt.gz
+1050323 7050 hist_mono_mean__ALL.txt.gz
+14863 357 hist_neut_loom__ALL.txt.gz
+656445 4820 hist_neut_mean__ALL.txt.gz
+2536 53 hist_tcell_loom__ALL.txt.gz
+121061 1605 hist_tcell_mean__ALL.txt.gz
+33203 680 methyl_mono_loom__ALL.txt.gz
+718183 4308 methyl_mono_mean__ALL.txt.gz
+36419 638 methyl_neut_loom__ALL.txt.gz
+740177 4326 methyl_neut_mean__ALL.txt.gz
+10796 287 methyl_tcell_loom__ALL.txt.gz
+450651 3755 methyl_tcell_mean__ALL.txt.gz

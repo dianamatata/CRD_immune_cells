@@ -1,0 +1,12 @@
+ 
+signif 1000 perm and FDR
+5423 FDR_0.01_hist_mono_CRD_gene_var_ALL.significant.txt
+4960 FDR_0.01_hist_neut_CRD_gene_var_ALL.significant.txt
+1550 FDR_0.01_hist_tcell_CRD_gene_var_ALL.significant.txt
+2039 FDR_0.01_methyl_mono_CRD_gene_var_ALL.significant.txt
+1469 FDR_0.01_methyl_tcell_CRD_gene_var_ALL.significant.txt
+6021 FDR_0.05_hist_mono_CRD_gene_var_ALL.significant.txt
+5436 FDR_0.05_hist_neut_CRD_gene_var_ALL.significant.txt
+1839 FDR_0.05_hist_tcell_CRD_gene_var_ALL.significant.txt
+2064 FDR_0.05_methyl_mono_CRD_gene_var_ALL.significant.txt
+1614 FDR_0.05_methyl_tcell_CRD_gene_var_ALL.significant.txt

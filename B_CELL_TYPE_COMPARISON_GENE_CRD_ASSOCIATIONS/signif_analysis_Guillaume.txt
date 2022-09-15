@@ -1,0 +1,19 @@
+ 
+3790 70_vs_72/gene_CRD_mean_permutations_full.txt.gz
+3605 70_vs_72/gene_CRD_mean_permutations.significant.txt
+20955 70_vs_72/gene_CRD_mean_permutations.thresholds.txt
+3437 70_vs_73/gene_CRD_mean_permutations_full.txt.gz
+1717 70_vs_73/gene_CRD_mean_permutations.significant.txt
+20955 70_vs_73/gene_CRD_mean_permutations.thresholds.txt
+4440 72_vs_70/gene_CRD_mean_permutations_full.txt.gz
+3606 72_vs_70/gene_CRD_mean_permutations.significant.txt
+25346 72_vs_70/gene_CRD_mean_permutations.thresholds.txt
+4201 72_vs_73/gene_CRD_mean_permutations_full.txt.gz
+1868 72_vs_73/gene_CRD_mean_permutations.significant.txt
+25346 72_vs_73/gene_CRD_mean_permutations.thresholds.txt
+4053 73_vs_70/gene_CRD_mean_permutations_full.txt.gz
+831 73_vs_70/gene_CRD_mean_permutations.significant.txt
+23599 73_vs_70/gene_CRD_mean_permutations.thresholds.txt
+4243 73_vs_72/gene_CRD_mean_permutations_full.txt.gz
+991 73_vs_72/gene_CRD_mean_permutations.significant.txt
+23599 73_vs_72/gene_CRD_mean_permutations.thresholds.txt

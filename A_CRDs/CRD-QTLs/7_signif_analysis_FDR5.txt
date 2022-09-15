@@ -1,0 +1,25 @@
+ 
+401 FDR_0.01_hist_mono_loom__ALL.significant.txt
+5925 FDR_0.01_hist_mono_mean__ALL.significant.txt
+251 FDR_0.01_hist_neut_loom__ALL.significant.txt
+3987 FDR_0.01_hist_neut_mean__ALL.significant.txt
+16 FDR_0.01_hist_tcell_loom__ALL.significant.txt
+1279 FDR_0.01_hist_tcell_mean__ALL.significant.txt
+482 FDR_0.01_methyl_mono_loom__ALL.significant.txt
+3711 FDR_0.01_methyl_mono_mean__ALL.significant.txt
+449 FDR_0.01_methyl_neut_loom__ALL.significant.txt
+3733 FDR_0.01_methyl_neut_mean__ALL.significant.txt
+183 FDR_0.01_methyl_tcell_loom__ALL.significant.txt
+3157 FDR_0.01_methyl_tcell_mean__ALL.significant.txt
+593 FDR_0.05_hist_mono_loom__ALL.significant.txt
+7050 FDR_0.05_hist_mono_mean__ALL.significant.txt
+357 FDR_0.05_hist_neut_loom__ALL.significant.txt
+4820 FDR_0.05_hist_neut_mean__ALL.significant.txt
+53 FDR_0.05_hist_tcell_loom__ALL.significant.txt
+1605 FDR_0.05_hist_tcell_mean__ALL.significant.txt
+680 FDR_0.05_methyl_mono_loom__ALL.significant.txt
+4308 FDR_0.05_methyl_mono_mean__ALL.significant.txt
+638 FDR_0.05_methyl_neut_loom__ALL.significant.txt
+4326 FDR_0.05_methyl_neut_mean__ALL.significant.txt
+287 FDR_0.05_methyl_tcell_loom__ALL.significant.txt
+3755 FDR_0.05_methyl_tcell_mean__ALL.significant.txt

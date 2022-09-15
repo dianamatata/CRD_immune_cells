@@ -1,0 +1,28 @@
+ 
+signif 1000 perm and FDR
+4966 FDR_0.01_hist_mono_mean_mapping_CRD_gene_ALL.significant.txt
+4715 FDR_0.01_hist_neut_mean_mapping_CRD_gene_ALL.significant.txt
+1642 FDR_0.01_hist_tcell_mean_mapping_CRD_gene_ALL.significant.txt
+1688 FDR_0.01_methyl_mono_mean_mapping_CRD_gene_ALL.significant.txt
+1459 FDR_0.01_methyl_neut_mean_mapping_CRD_gene_ALL.significant.txt
+1351 FDR_0.01_methyl_tcell_mean_mapping_CRD_gene_ALL.significant.txt
+6764 FDR_0.05_hist_mono_mean_mapping_CRD_gene_ALL.significant.txt
+6318 FDR_0.05_hist_neut_mean_mapping_CRD_gene_ALL.significant.txt
+2224 FDR_0.05_hist_tcell_mean_mapping_CRD_gene_ALL.significant.txt
+2276 FDR_0.05_methyl_mono_mean_mapping_CRD_gene_ALL.significant.txt
+2010 FDR_0.05_methyl_neut_mean_mapping_CRD_gene_ALL.significant.txt
+1872 FDR_0.05_methyl_tcell_mean_mapping_CRD_gene_ALL.significant.txt
+merged nominal 1000 perm 
+6021 hist_mono_mean_mapping_CRD_gene_ALL.txt.gz
+5857 hist_neut_mean_mapping_CRD_gene_ALL.txt.gz
+1932 hist_tcell_mean_mapping_CRD_gene_ALL.txt.gz
+2064 methyl_mono_mean_mapping_CRD_gene_ALL.txt.gz
+1804 methyl_neut_mean_mapping_CRD_gene_ALL.txt.gz
+1614 methyl_tcell_mean_mapping_CRD_gene_ALL.txt.gz
+nominal 1
+280218 hist_mono_mean_mapping_CRD_gene_ALL.txt.gz
+208458 hist_neut_mean_mapping_CRD_gene_ALL.txt.gz
+152998 hist_tcell_mean_mapping_CRD_gene_ALL.txt.gz
+213809 methyl_mono_mean_mapping_CRD_gene_ALL.txt.gz
+169717 methyl_neut_mean_mapping_CRD_gene_ALL.txt.gz
+181224 methyl_tcell_mean_mapping_CRD_gene_ALL.txt.gz

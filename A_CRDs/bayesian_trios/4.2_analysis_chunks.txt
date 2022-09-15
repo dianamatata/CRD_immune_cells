@@ -1,0 +1,21 @@
+$DIR
+methyl_neut 100
+methyl_mono 100
+methyl_tcell 100
+hist_neut 100
+hist_mono 100
+hist_tcell 100
+$DIR2
+methyl_neut 100
+methyl_mono 100
+methyl_tcell 100
+hist_neut 100
+hist_mono 100
+hist_tcell 100
+$DIR3
+methyl_neut 0
+methyl_mono 4
+methyl_tcell 4
+hist_neut 4
+hist_mono 4
+hist_tcell 4

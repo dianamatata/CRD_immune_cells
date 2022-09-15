@@ -1,0 +1,8 @@
+/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002670_CLOMICS_v3.0
+in permute there is the aCRD and sCRD QTL
+
+/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002670_CLOMICS_v3.0/TRANS-EQTL/Q0.05
+trans-eQTL
+
+/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002663/All_chr.BPWP10_13_12_15.vcf.gz
+

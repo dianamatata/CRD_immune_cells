@@ -1,0 +1,25 @@
+number of significant hits for transCRDs
+29 hist_mono_loom_trans.significant_0.01.txt
+84691 hist_mono_mean_trans.significant_0.01.txt
+791 hist_neut_loom_trans.significant_0.01.txt
+159423 hist_neut_mean_trans.significant_0.01.txt
+248 hist_tcell_loom_trans.significant_0.01.txt
+116659 hist_tcell_mean_trans.significant_0.01.txt
+4 methyl_mono_loom_trans.significant_0.01.txt
+11720 methyl_mono_mean_trans.significant_0.01.txt
+169 methyl_neut_loom_trans.significant_0.01.txt
+12526 methyl_neut_mean_trans.significant_0.01.txt
+2 methyl_tcell_loom_trans.significant_0.01.txt
+14023 methyl_tcell_mean_trans.significant_0.01.txt
+100 hist_mono_loom_trans.significant_0.05.txt
+183219 hist_mono_mean_trans.significant_0.05.txt
+3585 hist_neut_loom_trans.significant_0.05.txt
+336201 hist_neut_mean_trans.significant_0.05.txt
+980 hist_tcell_loom_trans.significant_0.05.txt
+277488 hist_tcell_mean_trans.significant_0.05.txt
+8 methyl_mono_loom_trans.significant_0.05.txt
+29680 methyl_mono_mean_trans.significant_0.05.txt
+378 methyl_neut_loom_trans.significant_0.05.txt
+26864 methyl_neut_mean_trans.significant_0.05.txt
+2 methyl_tcell_loom_trans.significant_0.05.txt
+37162 methyl_tcell_mean_trans.significant_0.05.txt

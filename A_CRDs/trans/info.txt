@@ -1,0 +1,2 @@
+problem with 21, the file has 10 columns instead of 12, there is no the stop position of the crds
+so we cannot run the step 21b or the fdr yet

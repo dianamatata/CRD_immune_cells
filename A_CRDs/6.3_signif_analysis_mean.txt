@@ -1,0 +1,13 @@
+ 
+6755 FDR_0.05_hist_mono_mean_mapping_CRD_gene_ALL.significant.txt
+25346 FDR_0.05_hist_mono_mean_mapping_CRD_gene_ALL.thresholds.txt
+6300 FDR_0.05_hist_neut_mean_mapping_CRD_gene_ALL.significant.txt
+20955 FDR_0.05_hist_neut_mean_mapping_CRD_gene_ALL.thresholds.txt
+2239 FDR_0.05_hist_tcell_mean_mapping_CRD_gene_ALL.significant.txt
+23599 FDR_0.05_hist_tcell_mean_mapping_CRD_gene_ALL.thresholds.txt
+2300 FDR_0.05_methyl_mono_mean_mapping_CRD_gene_ALL.significant.txt
+25346 FDR_0.05_methyl_mono_mean_mapping_CRD_gene_ALL.thresholds.txt
+2027 FDR_0.05_methyl_neut_mean_mapping_CRD_gene_ALL.significant.txt
+20955 FDR_0.05_methyl_neut_mean_mapping_CRD_gene_ALL.thresholds.txt
+1858 FDR_0.05_methyl_tcell_mean_mapping_CRD_gene_ALL.significant.txt
+23599 FDR_0.05_methyl_tcell_mean_mapping_CRD_gene_ALL.thresholds.txt
