@@ -121,7 +121,7 @@ for(data_type in data_types){
       
       # download files
       allCRDs = fread(file_CRD,header=F)
-      array_aCRD_gene = read.table(file_mapdata, hea=F, stringsAsFactors=F)
+      array_aCRD_gene = read.table(file_mapdata, head=F, stringsAsFactors=F)
       corr_genes=fread(paste0(path,rna_file[[cell_type]]))
       corr_genes=get_corr_genes_formated(corr_genes,genelist)
       

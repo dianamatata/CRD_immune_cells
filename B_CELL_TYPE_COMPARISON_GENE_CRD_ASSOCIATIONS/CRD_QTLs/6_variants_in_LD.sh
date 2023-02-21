@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-OUTDIR=/home/users/a/avalosma/scratch/10_CRD_QTLs/mixedCRDs/LD
-VCF=/home/users/a/avalosma/scratch/10_CRD_QTLs/All_chr.BPWP10_13_12_15.vcf.gz
-DIR=/home/users/a/avalosma/scratch/10_CRD_QTLs/mixedCRDs/conditional_merged
+OUTDIR=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/mixedCRDs/LD
+VCF=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/All_chr.BPWP10_13_12_15.vcf.gz
+DIR=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/mixedCRDs/conditional_merged
 mkdir -p $OUTDIR $OUTDIR/OUT
 
 

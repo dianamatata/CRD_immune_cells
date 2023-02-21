@@ -2,8 +2,8 @@
 # ENRICHMENT ---------------------------------------------
 # ---------------------------------------------
 
-INDIR=/home/users/a/avalosma/scratch/10_CRD_QTLs/merged 
-OUTDIR=/home/users/a/avalosma/scratch/10_CRD_QTLs/significants 
+INDIR=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/merged 
+OUTDIR=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/significants 
 
 # Step1: Prepare the QTL data  ---------------------------------------------
 for file in $OUTDIR/FDR*significant.txt; do
@@ -13,7 +13,7 @@ for file in $OUTDIR/FDR*significant.txt; do
   cat $OUTDIR/$file | awk '{ print $9, $10-1, $11, $8, $1, $5 }' | tr " " "\t" | sort -k1,1 -k2,2n > $OUTDIR/$filename.genes.significant.bed
 done
 
-# 1. Chromosome ID of the phenotype
+# 1. Chromosome ID of the phenotype / SNP
 # 2. Start position of the phenotype
 # 3. End position of the phenotype
 # 4. Phenotype ID
@@ -30,18 +30,31 @@ for file in $INDIR/*.txt.gz; do
 done
 
 
+# ~/scratch/CRD_project_outputs/10_CRD_QTLs/significants% cat hist_mono_mean.genes.significant.bed | head
+# 1 729631  729632  rs116720794 1_internal_16484  +
+# 1 801466  801467  rs61768212  1_internal_18817  +
+# 1 881626  881627  rs2272757 1_internal_24607  +
+# 1 948691  948692  rs2341365 1_internal_17801  +
+
+# ~/scratch/CRD_project_outputs/10_CRD_QTLs/significants% cat hist_mono_mean.genes.quantified.bed | head
+# 1 712970  763351  1_internal_16484  rs116720794 +
+# 1 793492  806008  1_internal_18817  rs61768212  +
+# 1 815305  817074  1_internal_23301  rs12040819  +
+
 
 # enrichment PER TFBS  ---------------------------------------------
 enrichment_file=/home/users/a/avalosma/scratch/Annotations/TFBS.txt
-dir_log=/home/users/a/avalosma/scratch/10_CRD_QTLs/LOG
+dir_log=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/LOG
 # only the 50 most present
 
-# /home/users/a/avalosma/scratch/Annotations/TFs_highly_present2.txt
+# /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/TFs_highly_present2.txt
 # awk '{print $4}'  TFs_highly_present2.txt | sort | uniq -c # got 50 of them
 # awk '{print $4}'  TFs_highly_present2.txt | sort | uniq > list50TFs.txt
 
-dirannot=/home/users/a/avalosma/scratch/Annotations
+dirannot=/home/users/a/avalosma/scratch/CRD_project_outputs/Annotations
 enrichment=$dirannot/TFBS_sorted_nochr.txt
+
+[avalosma@login2]~/scratch/Annotations% zcat TFBS_sorted_nochr.txt.gz | cut -f5 | sort | uniq | wc -l
 
 # for TFBS in $(cat $dirannot/list50TFs.txt)
 
@@ -50,6 +63,7 @@ do
     echo $TFBS
     cat $enrichment | grep $TFBS > $enrichment_file
     enrichment_file=$dirannot/TFBS_enrichment/${TFBS}_enrichment.txt
+    # enrichmen file has posiion for all TFBS for all chr all pos
     
   for file in $OUTDIR/FDR*significant.txt; do
     file=$(echo $file | rev | cut -d "/" -f1 | rev)
@@ -70,13 +84,20 @@ do
 done
     # echo $file
 
+# cat enrichement.QTL.in.TF.txt
+# 1. observed number of QTLs falling within the functional annotations
+# 2. total number of QTLs
+# 3. mean expected number of QTLs falling within the functional annotations (across multiple permutations, see below)
+# 4. standard deviation of the expected number of QTLs falling within the functional annotations (across multiple permutations, see below)
+# 5-8. dummy fields
 
+# --permute 1000 default
 
 
 
 # enrichment epimap  ---------------------------------------------
-enrichment_file=/home/users/a/avalosma/scratch/Annotations/Epimap/epimap_2cells.sorted.nochr.bed.gz 
-dir_log=/home/users/a/avalosma/scratch/10_CRD_QTLs/LOG
+enrichment_file=/home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/Epimap/epimap_2cells.sorted.nochr.bed.gz 
+dir_log=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/LOG
 
 for file in $OUTDIR/FDR*significant.txt; do
   file=$(echo $file | rev | cut -d "/" -f1 | rev)
@@ -98,8 +119,8 @@ for file in $OUTDIR/FDR*significant.txt; do
 done
 
 # enrichment encode  ---------------------------------------------
-enrichment_file=/home/users/a/avalosma/scratch/Annotations/encode/encode_3cells_to_22.sorted.nochr.bed.gz
-dir_log=/home/users/a/avalosma/scratch/10_CRD_QTLs/LOG
+enrichment_file=/home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells_to_22.sorted.nochr.bed.gz
+dir_log=/home/users/a/avalosma/scratch/CRD_project_outputs/10_CRD_QTLs/LOG
 
 
 for file in $OUTDIR/FDR*significant.txt; do
@@ -131,7 +152,7 @@ done
 
 # enrichment files concatenate
 # need 1 not chr 1
-cd ~/scratch/Annotations/encode
+cd ~/scratch/CRD_project_outputs/Annotations/encode
 # in each subfolder, merge all and sirt and uniq
 zcat *.gz >> all.bed
 cat all.bed | sort -V -k1,1 -k2,2n | uniq | gzip > encode_monocytes.bed.gz
@@ -148,35 +169,35 @@ mv encode_tcells1.bed.gz encode_tcells.bed.gz
 mv encode_monocytes1.bed.gz encode_monocytes.bed.gz
 
 # concatenate
-cd /home/users/a/avalosma/scratch/Annotations/encode
+cd /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode
 zcat neutrophils/encode_neutrophils.bed.gz tcells/encode_tcells.bed.gz monocytes/encode_monocytes.bed.gz >> encode_3cells.bed
 cat encode_3cells.bed | sort -V -k1,1 -k2,2n | uniq | gzip > encode_3cells.sorted.bed.gz
-zcat /home/users/a/avalosma/scratch/Annotations/encode/encode_3cells.sorted.bed.gz | sed "s/^chr//" | gzip > /home/users/a/avalosma/scratch/Annotations/encode/encode_3cells.sorted.nochr.bed.gz
+zcat /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells.sorted.bed.gz | sed "s/^chr//" | gzip > /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells.sorted.nochr.bed.gz
 
 
 # epimap   ---------------------------------------------
-cd /home/users/a/avalosma/scratch/Annotations/Epimap/CD14_mono
+cd /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/Epimap/CD14_mono
 zcat CD14M.bed.gz | sort -V -k1,1 -k2,2n | uniq | gzip > epimap_monocyte.bed.gz
 zcat epimap_monocyte.bed.gz | sed "s/$/\tepimap_monocyte/" | gzip > epimap_monocyte1.bed.gz
 mv epimap_monocyte1.bed.gz epimap_monocyte.bed.gz
 
-cd /~/scratch/Annotations/Epimap/CD4_Tcells
+cd /~/scratch/CRD_project_outputs/Annotations/Epimap/CD4_Tcells
 zcat CD4T.bed.gz | sort -V -k1,1 -k2,2n | uniq | gzip > epimap_tcells.bed.gz
 zcat epimap_tcells.bed.gz | sed "s/$/\tepimap_tcells/" | gzip > epimap_tcells1.bed.gz
 mv epimap_tcells1.bed.gz epimap_tcells.bed.gz
 
 # concatenate
-cd /home/users/a/avalosma/scratch/Annotations/Epimap/CD14_mono
+cd /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/Epimap/CD14_mono
 zcat CD4_Tcells/epimap_tcells.bed.gz CD14_mono/epimap_monocyte.bed.gz >> epimap_2cells.bed
 cat epimap_2cells.bed | sort -V -k1,1 -k2,2n | uniq | gzip > epimap_2cells.sorted.bed.gz
-zcat /home/users/a/avalosma/scratch/Annotations/Epimap/epimap_2cells.sorted.bed.gz | sed "s/^chr//" | gzip \
-> /home/users/a/avalosma/scratch/Annotations/Epimap/epimap_2cells.sorted.nochr.bed.gz
+zcat /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/Epimap/epimap_2cells.sorted.bed.gz | sed "s/^chr//" | gzip \
+> /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/Epimap/epimap_2cells.sorted.nochr.bed.gz
 
 # remove weird chr
-zcat /home/users/a/avalosma/scratch/Annotations/encode/encode_3cells.sorted.nochr.bed.gz\
+zcat /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells.sorted.nochr.bed.gz\
 |  awk -F "," '$1 <= 22' \
-> /home/users/a/avalosma/scratch/Annotations/encode/encode_3cells_filter.bed
-cat /home/users/a/avalosma/scratch/Annotations/encode/encode_3cells_filter.bed | gzip > /home/users/a/avalosma/scratch/Annotations/encode/encode_3cells_to_22.sorted.nochr.bed.gz
+> /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells_filter.bed
+cat /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells_filter.bed | gzip > /home/users/a/avalosma/scratch/CRD_project_outputs/Annotations/encode/encode_3cells_to_22.sorted.nochr.bed.gz
 # JHw09utzbCXRs
 # unzip '*.zip'
 

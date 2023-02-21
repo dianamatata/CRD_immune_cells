@@ -51,9 +51,9 @@ plot_50_biggest_TRH_sizes <- function(communities,file, name){
   
   cat(length(df$SIZE))
   df <-df[order(-df$SIZE),]
-  df <- data.frame(head(df$SIZE,50),seq(1,50))
-  colnames(df)=c("SIZE","ID")
   if (length(df$SIZE) >=50){
+    df <- data.frame(head(df$SIZE,50),seq(1,50))
+    colnames(df)=c("SIZE","ID")
     outfilename=paste0(out_dir,"plot_50_biggest_TRHs_",name,".pdf")
     pdf(outfilename)
     p2<- ggplot(df, aes(x = ID, y = SIZE)) + geom_bar(stat = "identity", fill="steelblue", width=0.7) + 
@@ -79,9 +79,13 @@ plot_50_biggest_TRH_sizes <- function(communities,file, name){
       theme(axis.text=element_text(size=16), axis.title=element_text(size=16) ) + theme_minimal() 
     print(p2)
     dev.off()
+    df=df4
   }
+  return (df)
   
 }
+
+
 
 
 #############################################################################################
@@ -93,8 +97,11 @@ plot_50_biggest_TRH_sizes <- function(communities,file, name){
 directory='/Users/dianaavalos/Programming/A_CRD_plots/trans_files/7_CRD_Trans:significant'
 out_dir='/Users/dianaavalos/Programming/A_CRD_plots/trans_files/7_CRD_Trans:TRHs/'
 
+directory="/Users/dianaavalos/Desktop/reviews_avalos/7_CRD_Trans/significants"
+out_dir="/Users/dianaavalos/Desktop/reviews_avalos/7_CRD_Trans/TRHs"
+
 files <- list.files(path=directory, pattern="0.0*.txt", full.names=TRUE, recursive=FALSE)
-filename=paste0(out_dir,'TRHs_inventory.txt')
+filename=paste0(out_dir,'TRHs_inventory2.txt')
 
 
 #############################################################################################
@@ -109,8 +116,12 @@ write(line,file=filename,append=TRUE)
 files= intersect(list.files(path=directory, pattern="0.01.txt", full.names=TRUE, recursive=FALSE), 
                  list.files(path=directory, pattern="mean", full.names=TRUE, recursive=FALSE))
 
+df_tot <- data.frame(matrix(ncol = 3, nrow = 0))
+x <- c("SIZE", "ID", "name")
+colnames(df) <- x
+
 for (f in files){
-  # f=files[3]
+  print(file)
   file=basename(f)
   TRH_signif = as.data.frame(data.table::fread(f, head=TRUE, stringsAsFactors=FALSE))
   colnames(TRH_signif) = c("idx1","chr1","midplace","id1","idx2","chr2","midplace2","id2","corr","pval","qvalue")
@@ -125,8 +136,12 @@ for (f in files){
   name=paste0(str_sub(file, 1, - 27) ,str_sub(file, 34, - 5))
   cat (' ',name, '  ', nbr_TRHs, '  ')
   
-  plot_50_biggest_TRH_sizes(communities,file, name)
+  df4=plot_50_biggest_TRH_sizes(communities,file, name)
+  df4$name=name
+  df_tot=rbind(df_tot,df4)
 }
+
+df_tot
 
 
 

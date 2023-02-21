@@ -44,4 +44,3 @@ HOMER v4.9 (webpage: http://homer.ucsd.edu/homer/ngs/peaks.html)
 Clomics v1.0 (https://github.com/odelaneau/clomics)
 QTLTools v1.3.1 (https://qtltools.github.io/qtltools)
 GOrilla for identifying and visualizing enriched GO terms (http://cbl-gorilla.cs.technion.ac.il/)
-

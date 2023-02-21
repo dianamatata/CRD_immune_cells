@@ -204,7 +204,7 @@ for(data_type in data_types){
       nb_CRD_not_associated = nrow(allCRDs) - length(unique(mapdata$CRD_ID))
 
       ##### MAIN
-      nb_genes_not_associated = length(unique(corr_genes$gene1)) - length(unique(mapdata$phenotype_ID))
+      nb_genes_not_associated = length(unique(corr_genes$gene1)) - length(unique(mapdata$phenotype_ID)) # all genes in RNA file - the ones not with CRD associations
       validated=compute_hic_validated(PCHiC, mapdata)
       
       mapdata_validated=compute_HiC_column_in_mapdata(PCHiC, mapdata,validated,cell_type)
@@ -247,7 +247,7 @@ for(data_type in data_types){
       corr_genes$dist2=-1
       
       for(i in 1:length(CRD_IDs)){
-        # cat(i,"\n")
+        # cat(i,"\n") # for each CRD, get the associated genes in cis. add hic data
         idx = which(mapdata$CRD_ID == CRD_IDs[i])
         if(length(idx)>1){
           for(k in 1:(length(idx)-1)){
