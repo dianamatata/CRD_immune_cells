@@ -36,11 +36,12 @@ EGAD00001002674 RNA-Seq data for 197 CD14-positive, CD16-negative classical mono
 and  Hi-C data from Javierre et al., Cell 2016
 
 ## Softwares
+Publicly available code used in this study :
+BCFtools v1.8 (based on HTSlib v1.8)
+PLINK v1.90b5
+R v3.5.1
 HOMER v4.9 (webpage: http://homer.ucsd.edu/homer/ngs/peaks.html)
-
 Clomics v1.0 (https://github.com/odelaneau/clomics)
-
 QTLTools v1.3.1 (https://qtltools.github.io/qtltools)
-
 GOrilla for identifying and visualizing enriched GO terms (http://cbl-gorilla.cs.technion.ac.il/)
 
