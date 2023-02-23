@@ -49,15 +49,15 @@ compute_ratio_hic_mapdata_signif <-function(CRDmindist,CRDmaxdist,cutoff=5,pval_
 # MAIN
 #
 #############################################################################################
-directory='/Volumes/Elements/Programming\ PhD/A_CRD_plots/8_PEAKS'
-out_dir=directory
-PCHiC = fread('/Volumes/Elements/Programming\ PhD/HiC_nov20/PCHiC_peak_matrix_cutoff5.tsv')
+# directory='/Users/dianaavalos/Programming/A_CRD_plots/8_PEAKS'
+# out_dir=directory
+# PCHiC = fread('/Users/dianaavalos/Programming/THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS/PCHiC_peak_matrix_cutoff5.tsv')
 
 
 # for cluster
-directory='/srv/beegfs/scratch/users/a/avalosma/CRD_project_outputs/8_PEAKS'
+directory='/srv/beegfs/scratch/users/a/avalosma/8_PEAKS'
 out_dir=directory
-PCHiC = fread('/srv/beegfs/scratch/users/a/avalosma/CRD_project_outputs/0_CRD/PCHiC_peak_matrix_cutoff5.tsv')
+PCHiC = fread('/srv/beegfs/scratch/users/a/avalosma/0_CRD/PCHiC_peak_matrix_cutoff5.tsv')
 
 buffersize = 500 #size of buffer around peak position midpoint
 reImport = FALSE
@@ -219,7 +219,6 @@ for (file in all.files){
   
   cor.test(-log10(cordata$pval[which((abs(cordata$distance>0))==1 & cordata_validated>0)]),cordata_validated[which((abs(cordata$distance>0))==1 & cordata_validated>0)],method='s')
   
-  write.table(toplot,file = paste0(out_dir,"/",name_condition,"_Hic.txt"),quote=FALSE, col.names = T, row.names = F, sep="\t")
   
 }
 
