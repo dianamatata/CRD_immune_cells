@@ -13,7 +13,7 @@ library(gridExtra)
 
 # CRDQTLs
 
-dir="/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles"
+dir="/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Fig2c_data_and_plot//CRDQTL_outfiles"
 for(pattern in c(".out")){
   print(pattern)
   files=list.files(dir,pattern)
@@ -91,5 +91,5 @@ grid.arrange(grobs = listPlotCRDQTLs1, nrow = length(unique(sumCRDQTLs$Annotatio
 dev.off()
 
 write.table(dff,file = "/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles/dff_for_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
-write.table(summary,file = "/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles/summary_data_for_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
+write.table(summary,file = "/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles/enrichment_hCRD_QTLs_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
 

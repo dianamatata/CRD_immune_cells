@@ -182,6 +182,9 @@ f4.4 <- ggplot(toplot2.molten, aes(x = dist, y = value,fill=CellType))+ ggtitle(
   labs(x = "Distance between genes",y = "Fraction with HiC support (%)") 
 print(f4.4)
 
+
+toplot2$mean=rowMeans(toplot2[,1:3])
+ggplot(toplot2, aes(x = dist, y = mean))
 ### Fig 6.5: Overlap between trans eGenes (aCRD, sCRD and eGene) across the three immune cell types.
 
 toplot2 = data.frame(NEU=c(67,1,1),MON=c(39,1,1),TCL=c(3,0,1), Group =c("1cell_type","2cell_types","3cell_types"))
@@ -224,5 +227,4 @@ pd$percentage=paste0(round(toplot3.molten$value,digits=2),"%")
 p2<-p + geom_text(data = pd, aes(x = (xmin + xmax)/2, y = (ymin + ymax)/2,  label = percentage))
 p2<-p2+xlab("CellType")+ylab("Trans eGenes")
 p2
-
 

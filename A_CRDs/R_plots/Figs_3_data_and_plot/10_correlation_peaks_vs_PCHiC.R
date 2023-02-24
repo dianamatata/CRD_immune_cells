@@ -1,12 +1,9 @@
+
 # Clean environment
 rm(list=ls())
 gc()
 
-#############################################################################################
-#
-# PACKAGES
-#
-#############################################################################################
+# Packages ---------------------------------------------
 
 library(qvalue)
 library(ggplot2)
@@ -50,9 +47,9 @@ compute_ratio_hic_mapdata_signif <-function(CRDmindist,CRDmaxdist,cutoff=5,pval_
 #
 #############################################################################################
 # directory='/Users/dianaavalos/Programming/A_CRD_plots/8_PEAKS'
+directory='/Volumes/Elements/Programming\ PhD/A_CRD_plots/8_PEAKS'
 # out_dir=directory
-# PCHiC = fread('/Users/dianaavalos/Programming/THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS/PCHiC_peak_matrix_cutoff5.tsv')
-
+PCHiC = fread('/Volumes/Elements/Programming\ PhD/HiC_nov20/PCHiC_peak_matrix_cutoff5.tsv')
 
 # for cluster
 directory='/srv/beegfs/scratch/users/a/avalosma/8_PEAKS'
@@ -80,8 +77,8 @@ file.create(filename)
 
 # import corr data
 all.files <- intersect(intersect(list.files(path=directory, pattern=data_type, full.names=TRUE, recursive=FALSE),
-                               list.files(path=directory, pattern=cell_type, full.names=TRUE, recursive=FALSE)),
-                     list.files(path=directory, pattern="corr.chr", full.names=TRUE, recursive=FALSE))
+                                 list.files(path=directory, pattern=cell_type, full.names=TRUE, recursive=FALSE)),
+                       list.files(path=directory, pattern="corr.chr", full.names=TRUE, recursive=FALSE))
 
 for (file in all.files){
   cat(file)
@@ -100,6 +97,7 @@ for (file in all.files){
   #############################################################################################
   
   # HiC
+  colnames(PCHiC)[1] <- c("baitChr")
   baitbed <- GRanges(seqnames=PCHiC$baitChr,ranges=IRanges(start=PCHiC$baitStart, end=PCHiC$baitEnd))
   oebed <- GRanges(seqnames=PCHiC$oeChr,ranges=IRanges(start=PCHiC$oeStart, end=PCHiC$oeEnd))
   
@@ -109,7 +107,7 @@ for (file in all.files){
   cat("Overlapping correlation and PCHiC data...\n")
   
   #fwd
-  x = findOverlaps(baitbed,peak1bed)
+  x =  findOverlaps(baitbed,peak1bed)
   y = findOverlaps(oebed,peak2bed)
   tmp = rbind(as.data.frame(x),as.data.frame(y))
   validated.fwd = tmp[which(duplicated(tmp)),]
@@ -221,4 +219,17 @@ for (file in all.files){
   
   
 }
+
+
+# only plot
+
+dfm <- read.csv("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/fig3a.txt", sep = "\t", header=T)
+dfm$dist <- factor(dfm$dist ,levels = c("0-10kb","10-20kb","20-50kb","50-100kb","100-200kb","200-500kb","0.5-1Mb"))
+
+ggplot(dfm, aes(x = dist, y = value))+ ggtitle("HiC support for peak associations") +
+  geom_bar(aes(fill = variable),stat = "identity",position = "dodge") +
+  labs(x = "Distance",y = "Fraction with PCHiC support (%)") +
+  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text = element_text(size = 20),axis.text.x = element_text(angle = 45, hjust = 1))
+
+
 

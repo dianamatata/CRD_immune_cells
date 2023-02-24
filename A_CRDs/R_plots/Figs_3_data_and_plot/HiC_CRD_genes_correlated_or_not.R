@@ -4,7 +4,7 @@
 # PLOT PCHiC support GENEs COEXPRESSED OR NOT AND ASSOCIATED WITH CRDs
 #
 #############################################################################################
-# ~  /Users/dianaavalos/Programming/A_CRD_plots/HiCplots/...
+# ~  /Volumes/Elements/Programming\ PhD/A_CRD_plots/HiCplots/...
 
 # Clean environment ------------------------------------
 rm(list=ls())
@@ -84,40 +84,7 @@ compute_hic_validated <- function(PCHiC, array_CRD_genes){
 
 
 compute_HiC_column_in_mapdata <- function(PCHiC, mapdata_signif,validated,cell_type){
-  # G function
-  # hic_validated = rep(1,nrow(PCHiC))
-  # 
-  # for(i in 1:nrow(validated)){
-  #   currenthic = validated$queryHits[i]
-  #   currentpval = mapdata_signif$bwd_pval[validated$subjectHits[i]]
-  #   if(currentpval<hic_validated[currenthic]){
-  #     hic_validated[currenthic] = currentpval
-  #   }
-  # }
-  # 
-  
-  # #  D function but wrong
-  #   mapdata_signif_validated = rep(0,nrow(mapdata_signif))
-  #   for(i in 1:nrow(validated)){
-  #     currenthic = validated$queryHits[i]
-  #     currentmap = validated$subjectHits[i]
-  #     
-  #     currentHiCScore_all <- c(PCHiC$Neu[currenthic], PCHiC$Mon[currenthic], PCHiC$nCD4[currenthic])
-  #     names(currentHiCScore_all) <- c("neut", "mono", "tcell")
-  #     currentHiCScore=currentHiCScore_all[[cell_type]]
-  #     
-  #     if(currentHiCScore>mapdata_signif_validated[currentmap]){
-  #       mapdata_signif_validated[currentmap] = currentHiCScore
-  #     }
-  #   }
-  
-  # D new
-  # problem, old was overwriting the last HiC value for the CRD-gene overlap
-  # better to take the average
-  # loop over subjecthits values
-  # take all the query hits associated
-  # mean of query hits HiS
-  
+
   # select the HiC column of the cell type of interest
   currentHiCScore_all <- PCHiC[,c("Neu","Mon","nCD4")]
   names(currentHiCScore_all) <- c("neut", "mono", "tcell")
@@ -144,7 +111,6 @@ compute_ratio_hic_mapdata <-function(mapdata,CRDmindist,CRDmaxdist,cutoff=5){
 }
 
 #HiC data
-
 
 mindist_btw_genes=0
 maxdist_btw_genes=1e09
@@ -356,13 +322,13 @@ genelist = c(protein_coding_genes,long_nc_RNA_genes)
 # paths 
 path='/Volumes/Elements/Programming\ PhD/A_CRD_plots/RNA' 
 path_out = '/Volumes/Elements/Programming\ PhD/A_CRD_plots/figs_geneCRD/'
-path_CRD_gene_signifs='/Users/dianaavalos/Programming/A_CRD_plots/CRD_genes_5/merged_TH/'
-path_CRD_gene_notsignifs='/Users/dianaavalos/Programming/A_CRD_plots/CRD_genes_5/nominal_merged/'
+path_CRD_gene_signifs='/Volumes/Elements/Programming\ PhD/A_CRD_plots/CRD_genes_5_for_plots/merged_TH/'
+path_CRD_gene_notsignifs='/Volumes/Elements/Programming\ PhD/A_CRD_plots/CRD_genes_5_for_plots/nominal_merged/'
 
-path_CRD='/Users/dianaavalos/Programming/A_CRD_plots/quantify_ALL/'
+path_CRD='/Volumes/Elements/Programming\ PhD/A_CRD_plots/quantify_ALL/'
 rna_file <- c('/EGAD00001002675_RNA.ALL.txt.gz', '/EGAD00001002674_RNA.ALL.txt.gz', '/EGAD00001002671_RNA.ALL.txt.gz')
 names(rna_file) <- c("neut", "mono", "tcell")
-PCHiC = fread('/Users/dianaavalos/Programming/HiC_nov20/PCHiC_peak_matrix_cutoff5.tsv')
+PCHiC = fread('/Volumes/Elements/Programming\ PhD/HiC_nov20/PCHiC_peak_matrix_cutoff5.tsv')
 
 path_out = '/Volumes/Elements/Programming\ PhD/A_CRD_plots/figs_geneCRD/'
 path_out="/Volumes/Elements/Programming\ PhD/A_CRD_plots/HiCplots/"
@@ -427,14 +393,13 @@ for(data_type in data_types){
       mapdata_signif$HIC=compute_HiC_column_in_mapdata(PCHiC, mapdata_signif,validated_signif,cell_type) # cell type for Hic
   
       # NOW we have it written for all cells
-      #df_associations=annotate_map_data_with_corr_genes_2022(mapdata_signif, corr_genes)
-      #write.table(df_associations,paste0("/Users/dianaavalos/Programming/A_CRD_plots/RNA/df_associations_",name_condition,".txt"),sep="\t",row.names=FALSE, quote=FALSE)
-      df_associations2=read.table(paste0("/Users/dianaavalos/Programming/A_CRD_plots/RNA/df_associations_",name_condition,".txt"),sep="\t", header=T)
+      df_associations2=annotate_map_data_with_corr_genes_2022(mapdata_signif, corr_genes)
+      #write.table(df_associations,paste0("/Volumes/Elements/Programming\ PhD/A_CRD_plots/RNA/df_associations_",name_condition,".txt"),sep="\t",row.names=FALSE, quote=FALSE)
+      # df_associations2=read.table(paste0("/Volumes/Elements/Programming\ PhD/A_CRD_plots/RNA/df_associations_",name_condition,".txt"),sep="\t", header=T)
       head(df_associations2)
       
       corr_genes2=annotate_map_data_with_corr_genes_OLD(mapdata_signif, corr_genes)
       # problem of annotate_map_data_with_corr_genes_OLD: we overwrite gene associations with 2 CRDs... but so far this is what we use..
-      
       
   
       gene_dist_bins = c(0,1e04,2e04,5e04,1e05,2e05,5e05,1e06,3e09)
@@ -445,15 +410,6 @@ for(data_type in data_types){
         coexpressed_mat_hic[i,1] = compute_ratio_hic_OLD(corr_genes2,T,0,1e09,gene_dist_bins[i],gene_dist_bins[i+1])
         notcoexpressed_mat_hic[i,1] =  compute_ratio_hic_OLD(corr_genes2,F,0,1e09,gene_dist_bins[i],gene_dist_bins[i+1])
       }
-      
-      # THAT IS IF DF_ASSOCIATIONS IN OUTPUT THE DIFF RESULTS
-      # gene_dist_bins = c(0,1e04,2e04,5e04,1e05,2e05,5e05,1e06)
-      # coexpressed_mat_hic = matrix(0,nrow=(length(gene_dist_bins)-1),ncol=2)
-      # notcoexpressed_mat_hic = matrix(0,nrow=(length(gene_dist_bins)-1),ncol=2)
-      # for(i in 1:(length(gene_dist_bins)-1)){
-      #   coexpressed_mat_hic[i,1] = compute_ratio_hic_2022(T,0,1e09,gene_dist_bins[i],gene_dist_bins[i+1],df_associations2,pval.cutoff=0.01,threshold=5)
-      #   notcoexpressed_mat_hic[i,1] =  compute_ratio_hic_2022(F,0,1e09,gene_dist_bins[i],gene_dist_bins[i+1],df_associations2,pval.cutoff=0.01,threshold=5)
-      # }
       
       
       # save all corr_genes to compute the mean later 
