@@ -13,7 +13,7 @@ library(gridExtra)
 
 # CRDQTLs
 
-dir="/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Fig2c_data_and_plot//CRDQTL_outfiles"
+dir="/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Fig2c_data_and_plot/CRDQTL_outfiles"
 for(pattern in c(".out")){
   print(pattern)
   files=list.files(dir,pattern)

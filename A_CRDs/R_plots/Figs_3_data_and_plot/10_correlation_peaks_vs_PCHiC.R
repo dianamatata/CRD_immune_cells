@@ -12,6 +12,19 @@ library(GenomicRanges)
 library(tidyverse)
 library(stringr)
 
+
+
+# only plot  ---------------------------------------------
+
+dfm <- read.csv("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/fig3a.txt", sep = "\t", header=T)
+dfm$dist <- factor(dfm$dist ,levels = c("0-10kb","10-20kb","20-50kb","50-100kb","100-200kb","200-500kb","0.5-1Mb"))
+
+ggplot(dfm, aes(x = dist, y = value))+ ggtitle("HiC support for peak associations") +
+  geom_bar(aes(fill = variable),stat = "identity",position = "dodge") +
+  labs(x = "Distance",y = "Fraction with PCHiC support (%)") +
+  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text = element_text(size = 20),axis.text.x = element_text(angle = 45, hjust = 1))
+
+
 #############################################################################################
 #
 # FUNCTIONS
@@ -219,17 +232,6 @@ for (file in all.files){
   
   
 }
-
-
-# only plot
-
-dfm <- read.csv("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/fig3a.txt", sep = "\t", header=T)
-dfm$dist <- factor(dfm$dist ,levels = c("0-10kb","10-20kb","20-50kb","50-100kb","100-200kb","200-500kb","0.5-1Mb"))
-
-ggplot(dfm, aes(x = dist, y = value))+ ggtitle("HiC support for peak associations") +
-  geom_bar(aes(fill = variable),stat = "identity",position = "dodge") +
-  labs(x = "Distance",y = "Fraction with PCHiC support (%)") +
-  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text = element_text(size = 20),axis.text.x = element_text(angle = 45, hjust = 1))
 
 
 
