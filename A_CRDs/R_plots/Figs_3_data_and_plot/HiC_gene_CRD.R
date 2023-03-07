@@ -293,19 +293,9 @@ write.table(toplot_ALL, file = paste0(path_out,"/toplot_ALL.txt"), sep = "\t",ro
 
 
 # TO TAKE IT HALFWAY
-toplot_ALL=read.table(file = paste0(path_out,"toplot_ALL.txt"), sep = "\t",header=T)
-Wilcoxsignif_ALL=read.table(file = paste0(path_out,"Wilcoxsignif_ALL.txt"), sep = "\t",header=T)
-
-# df3
-# hCRD_s    mCRD_s   hCRD_ns   mCRD_ns      dist
-# 1 35.480226 19.735615 42.285961 18.230295    inside
-# 2 27.693659 15.747535 24.309987 12.824312    0-10kb
-# 3 24.069487 12.792019 22.604362 11.217968   10-20kb
-# 4 25.699019 16.252140 21.510054 11.529094   20-50kb
-# 5 28.345250 18.480856 22.435096 13.123343  50-100kb
-# 6 29.006622 16.665127 19.651058 13.332162 100-200kb
-# 7 19.611260 11.268455 11.223430  7.288979 200-500kb
-# 8  9.115591  7.610431  3.629758  2.220465   0.5-1Mb
+path_out="/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/"
+toplot_ALL=read.table(file = paste0(path_out,"toplot_ALL_coexpressedgenes.txt"), sep = "\t",header=T)
+Wilcoxsignif_ALL=read.table(file = paste0(path_out,"Wilcoxsignif_ALL_coexpressedgenes.txt"), sep = "\t",header=T)
 
 df3=as.data.frame(matrix(NA, nrow = 8, ncol = 5))
 colnames(df3)=c("hCRD_s","mCRD_s" , "hCRD_ns" ,"mCRD_ns", "dist")   
