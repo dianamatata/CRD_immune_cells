@@ -34,6 +34,8 @@ EGAD00001002674 RNA-Seq data for 197 CD14-positive, CD16-negative classical mono
 
 and  Hi-C data from Javierre et al., Cell 2016
 
+The code and data fir the figures are found in the folder CRD immune cells/A CRDs/R plots
+
 ## Softwares
 Publicly available code used in this study :
 BCFtools v1.8 (based on HTSlib v1.8)
