@@ -90,6 +90,8 @@ png(paste0("/Users/dianaavalos/Desktop/figure_CRD_blood_GWAS_",thresh,"1.png"), 
 grid.arrange(grobs = listPlotCRDQTLs1, nrow = length(unique(sumCRDQTLs$Annotation))+1)
 dev.off()
 
-write.table(dff,file = "/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles/dff_for_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
-write.table(summary,file = "/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles/enrichment_hCRD_QTLs_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
+sumCRDQTLs <- sumCRDQTLs[ -c(1) ]
+sumCRDQTLs <- sumCRDQTLs[,c("Annotation","GWAS","PThresh","OR","Pvalue","Beta","SE","CI95_lower","CI95_upper","NAnnotThesh","NAnnot","NThresh","N","linkID","logpval","SEmin","SEmax")]
+# write.table(dff,file = "/Users/dianaavalos/Desktop/reviews_avalos/enrichment_QTLs/CRDQTL_outfiles/dff_for_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
+write.table(sumCRDQTLs,file = "/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Fig2c_data_and_plot/CRDQTL_outfiles/enrichment_hCRD_QTLs_plot2c.txt",quote=FALSE, col.names = T, row.names = F, sep="\t")
 

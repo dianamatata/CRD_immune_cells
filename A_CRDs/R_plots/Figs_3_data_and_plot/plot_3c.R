@@ -1,5 +1,22 @@
-df.molten <- read.table("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/fig3c_data.txt", sep = "\t",header=T)
-Wilcoxsignif_ALL2 <- read.table("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/Wilcoxsignif_ALL_coexpressedgenes.txt", sep = "\t",header=T)
+
+# Clean environment ------------------------------------
+rm(list=ls())
+gc()
+
+# Packages ---------------------------------------------
+
+library(qvalue)
+library(ggplot2)
+library(data.table)
+library(GenomicRanges)
+library(tidyverse)
+library(RColorBrewer)
+library(gplots)
+library(gridExtra)
+library(cowplot)
+
+df.molten <- read.table("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/3c_data.txt", sep = "\t",header=T)
+Wilcoxsignif_ALL2 <- read.table("/Users/dianaavalos/Desktop/reviews_avalos/CRD_immune_cells/A_CRDs/R_plots/Figs_3_data_and_plot/3c_Wilcoxsignif_ALL_coexpressedgenes.txt", sep = "\t",header=T)
 dist_subset=c("50-100kb","0.1-0.2Mb","0.2-0.5Mb","0.5-1Mb",">1Mb")
 df.molten <- df.molten %>%  filter(dist %in% dist_subset)
 df.molten$value[is.na(df.molten$value)] <- 0
